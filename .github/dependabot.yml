@@ -1,23 +1,37 @@
 version: 2
 updates:
-  - package-ecosystem: "all"
-    directory: "../"
-    schedule:
-      interval: "every 1 minute"
+  - package-ecosystem: "github-actions"
     target-branch: "development"
-    labels:
-      - "dependencies"
-    assignees:
-      - "HassanAli-Ashlar"
-    reviewers:
-      - "HassanAli-Ashlar"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 100
+    ignore:
+      - dependency_name: "*"
+        branches:
+          - "main"
 
+  - package-ecosystem: "npm"
+    target-branch: "development"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      time: "01:00"
+    open-pull-requests-limit: 100
+    labels:
+      - "npm dependencies"
+    ignore:
+      - dependency_name: "*"
+        branches:
+          - "main"
+
+    
   allow:
-    - dependency-type: "direct"
+    - dependency-type: "all"
       update-type: "semver:patch"
-    - dependency-type: "direct"
+    - dependency-type: "all"
       update-type: "semver:minor"
-    - dependency-type: "direct"
+    - dependency-type: "all"
       update-type: "semver:major"
     - dependency-type: "all"
       update-type: "security"
