@@ -4,7 +4,8 @@ updates:
     target-branch: "development"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
+      time: "11:16"
     open-pull-requests-limit: 100
     ignore:
       - dependency_name: "*"
@@ -15,8 +16,8 @@ updates:
     target-branch: "development"
     directory: "/"
     schedule:
-      interval: "weekly"
-      time: "01:00"
+      interval: "daily"
+      time: "11:16"
     open-pull-requests-limit: 100
     labels:
       - "npm dependencies"
